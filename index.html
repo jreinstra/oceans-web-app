@@ -1,36 +1,38 @@
-<html>
+<html ng-app="oceansWeb">
 <head>
     <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="main.css" type="text/css" rel="stylesheet">
+    <script src="angular.min.js"></script>
 </head>
 <body class="container">
     <div class="header">
-        <a class="title" href="/"><h1>Oceans <span class="glyphicon glyphicon-globe"></span></h1></a>
+        <a class="title" href="" ng-click="showMain"><h1>Oceans <span class="glyphicon glyphicon-globe"></span></h1></a>
         <p class="lead">Election and Voter Dashboard</p>
         <h2>
-            <a href="vote.html">Voter Registration</a>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="manage.html">Election Management</a>
+            <a href="" ng-click="showVoter">Voter Registration</a>
+            <a href="" ng-click="showElection">Election Management</a>
         </h2>
     </div>
-    <div class="row row-stats">
+    <div class="row row-stats" ng-controller="mainStats">
         <div class="col-sm-6">
             <h1>Election Status</h1>
-            <p class="lead stat-success">Running</p>
+            <p class="lead" ng-class="{'stat-success': electionStatus == 'Running'}" ng-bind="electionStatus">-</p>
         </div>
         <div class="col-sm-6">
-            <h1>Number of Ballots</h1>
+            <h1>Number of Ballot Questions</h1>
             <p class="lead">5</p>
         </div>
         <div class="col-sm-6">
             <h1>Number of Voters</h1>
-            <p class="lead">4,024,553</p>
+            <p class="lead" ng-bind="numVoters | number:0">-</p>
         </div>
         <div class="col-sm-6">
             <h1>Votes Cast</h1>
-            <p class="lead">3,211,315</p>
+            <p class="lead" ng-bind="numVotes | number:0">-</p>
         </div>
     </div>
     <script src="jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

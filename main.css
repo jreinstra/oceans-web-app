@@ -1,9 +1,13 @@
-a, a:hover {
+a, a:hover, a:active, a:focus {
     color: black;
 }
 
-.title:hover {
-    text-decoration: none;
+.header h2 a {
+    margin: 0 20px;
+}
+
+.title {
+    text-decoration: none !important;
 }
 
 body {
