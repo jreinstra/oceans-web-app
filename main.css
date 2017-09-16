@@ -1,5 +1,29 @@
+a, a:hover {
+    color: black;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
 body {
-    background-color: lightblue;
-    color: white;
     text-align: center;
+}
+
+.row-stats {
+    margin-top: 80px;
+}
+
+.row-stats p {
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.row-stats h1 {
+    font-weight: 400;
+    font-size: 34px;
+}
+
+.stat-success {
+    color: #5cb85c;
 }

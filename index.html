@@ -1,19 +1,36 @@
 <html>
 <head>
-    <script src="bootstrap.min.js"></script>
     <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="main.css" type="text/css" rel="stylesheet">
 </head>
 <body class="container">
-    <h1>Oceans</h1>
-    <p class="lead">Election and Voter Dashboard</p>
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Voter Registration</h2>
+    <div class="header">
+        <a class="title" href="/"><h1>Oceans <span class="glyphicon glyphicon-globe"></span></h1></a>
+        <p class="lead">Election and Voter Dashboard</p>
+        <h2>
+            <a href="vote.html">Voter Registration</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="manage.html">Election Management</a>
+        </h2>
+    </div>
+    <div class="row row-stats">
+        <div class="col-sm-6">
+            <h1>Election Status</h1>
+            <p class="lead stat-success">Running</p>
         </div>
-        <div class="col-md-6">
-            <h2>Election Management</h2>
+        <div class="col-sm-6">
+            <h1>Number of Ballots</h1>
+            <p class="lead">5</p>
+        </div>
+        <div class="col-sm-6">
+            <h1>Number of Voters</h1>
+            <p class="lead">4,024,553</p>
+        </div>
+        <div class="col-sm-6">
+            <h1>Votes Cast</h1>
+            <p class="lead">3,211,315</p>
         </div>
     </div>
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
 </body>
 </html>
