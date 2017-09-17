@@ -1,6 +1,9 @@
 <div class="row row-stats">
     <div class="col-sm-6">
-        <h2>Election Status</h2>
+        <h2>
+            Election Status
+            (<a href="" ng-click="start()">Start</a>/<a href="" ng-click="stop()">Stop</a>)
+        </h2>
         <p class="lead" ng-class="{'stat-success': electionStatus == 'Running'}" ng-bind="electionStatus">-</p>
     </div>
     <div class="col-sm-6">

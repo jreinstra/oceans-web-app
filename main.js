@@ -19,17 +19,17 @@ app.config(function($routeProvider) {
 });
 
 
-app.controller("HomeController", function($scope, $timeout, $interval) {
+app.controller("HomeController", function($scope) {
     $scope.electionStatus = "Not running";
     $scope.numVoters = 4024553;
     $scope.numVotes = 0;
     $scope.numQuestions = 5;
-    $timeout(function() {
-       $scope.electionStatus = "Running";
-        $interval(function() {
-            $scope.numVotes += 1000 + parseInt(Math.random() * 2000);
-        }, 1000);
-    }, 2000);
+    $scope.start = function() {
+        $scope.electionStatus = "Running";
+    }
+    $scope.stop = function() {
+        $scope.electionStatus = "Not running";
+    }
 });
 
 app.controller("VoterController", function($scope, $rootScope, $timeout, $http) {
