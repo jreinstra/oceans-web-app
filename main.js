@@ -19,13 +19,16 @@ app.config(function($routeProvider) {
 });
 
 
-app.controller("HomeController", function($scope) {
+app.controller("HomeController", function($scope, $http) {
     $scope.electionStatus = "Not running";
     $scope.numVoters = 4024553;
     $scope.numVotes = 0;
     $scope.numQuestions = 5;
     $scope.start = function() {
-        $scope.electionStatus = "Running";
+        $scope.electionStatus = "Toggling...";
+        $http.post(BASE_URL + "/start/", {}).then(function(response) {
+            $scope.electionStatus = "Running";
+        }, function(err) {alert(err.data); $scope.electionStatus = "Not running";});
     }
     $scope.stop = function() {
         $scope.electionStatus = "Not running";
