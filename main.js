@@ -37,7 +37,7 @@ app.controller("VoterController", function($scope, $rootScope, $timeout, $http) 
     $scope.submitForm = function() {
         $scope.submitText = "Loading...";
         $http.post(
-            BASE_URL + "/voter",
+            BASE_URL + "/voter/",
             {
                 "first_name": $scope.voterFirstname,
                 "last_name": $scope.voterLastname,
@@ -56,6 +56,25 @@ app.controller("VoterController", function($scope, $rootScope, $timeout, $http) 
     };
 });
 
-app.controller("ElectionController", function($scope, $timeout, $interval) {
-    $scope.foo = "bar";
+app.controller("ElectionController", function($scope, $http) {
+    $scope.submitText = "Add Prompt";
+    $scope.loadData = function() {
+            $http.get(BASE_URL + "/questions/").then(function(response) {
+            $scope.questions = response.data;
+            $scope.submitText = "Add Prompt";
+        }, function(error) { alert(error.data); });
+    }
+    $scope.submitForm = function() {
+        $scope.submitText = "Adding...";
+        $http.post(
+            BASE_URL + "/questions",
+            {
+                "title": $scope.questionTitle,
+                "candidates": $scope.questionCandidates.split(",")
+            },
+        ).then(function(response) {
+            $scope.loadData();
+        }, function(error) {alert(error.data);});
+    };
+    $scope.loadData();
 });

@@ -2,6 +2,10 @@ a, a:hover, a:active, a:focus {
     color: black;
 }
 
+body {
+    padding-bottom: 100px;
+}
+
 #header, .row-stats {
     text-align: center;
 }
