@@ -3,34 +3,18 @@
     <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="main.css" type="text/css" rel="stylesheet">
     <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
 </head>
 <body class="container">
     <div class="header">
-        <a class="title" href="" ng-click="showMain"><h1>Oceans <span class="glyphicon glyphicon-globe"></span></h1></a>
+        <a class="title" href="#!/" ng-click="showMain"><h1>Oceans</h1></a>
         <p class="lead">Election and Voter Dashboard</p>
         <h2>
-            <a href="" ng-click="showVoter">Voter Registration</a>
-            <a href="" ng-click="showElection">Election Management</a>
+            <a href="#!/voter" ng-click="showVoter">Voter Registration</a>
+            <a href="#!/election" ng-click="showElection">Election Management</a>
         </h2>
     </div>
-    <div class="row row-stats" ng-controller="mainStats">
-        <div class="col-sm-6">
-            <h1>Election Status</h1>
-            <p class="lead" ng-class="{'stat-success': electionStatus == 'Running'}" ng-bind="electionStatus">-</p>
-        </div>
-        <div class="col-sm-6">
-            <h1>Number of Ballot Questions</h1>
-            <p class="lead">5</p>
-        </div>
-        <div class="col-sm-6">
-            <h1>Number of Voters</h1>
-            <p class="lead" ng-bind="numVoters | number:0">-</p>
-        </div>
-        <div class="col-sm-6">
-            <h1>Votes Cast</h1>
-            <p class="lead" ng-bind="numVotes | number:0">-</p>
-        </div>
-    </div>
+    <div ng-view></div>
     <script src="jquery.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="main.js"></script>

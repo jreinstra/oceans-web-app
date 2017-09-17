@@ -1,0 +1,18 @@
+<div class="row row-stats">
+    <div class="col-sm-6">
+        <h1>Election Status</h1>
+        <p class="lead" ng-class="{'stat-success': electionStatus == 'Running'}" ng-bind="electionStatus">-</p>
+    </div>
+    <div class="col-sm-6">
+        <h1>Number of Ballot Questions</h1>
+        <p class="lead">5</p>
+    </div>
+    <div class="col-sm-6">
+        <h1>Number of Voters</h1>
+        <p class="lead" ng-bind="numVoters | number:0">-</p>
+    </div>
+    <div class="col-sm-6">
+        <h1>Votes Cast</h1>
+        <p class="lead" ng-bind="numVotes | number:0">-</p>
+    </div>
+</div>
