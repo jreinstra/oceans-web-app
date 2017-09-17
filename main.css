@@ -2,30 +2,29 @@ a, a:hover, a:active, a:focus {
     color: black;
 }
 
-.header h2 a {
-    margin: 0 20px;
-}
-
-.title {
-    text-decoration: none !important;
-}
-
-body {
+#header, .row-stats {
     text-align: center;
 }
 
-.row-stats {
-    margin-top: 80px;
+#header {
+    margin-bottom: 50px;
+}
+
+#header > h3 > a {
+    margin: 0 20px;
+}
+
+#title {
+    text-decoration: none !important;
 }
 
 .row-stats p {
-    font-size: 46px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 400;
 }
 
-.row-stats h1 {
-    font-weight: 400;
-    font-size: 34px;
+.row-stats > div {
+    margin-top: 20px;
 }
 
 .stat-success {

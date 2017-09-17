@@ -6,13 +6,13 @@
     <script src="angular-route.min.js"></script>
 </head>
 <body class="container">
-    <div class="header">
-        <a class="title" href="#!/" ng-click="showMain"><h1>Oceans</h1></a>
+    <div id="header">
+        <a id="title" href="#!/" ng-click="showMain"><h1>Oceans</h1></a>
         <p class="lead">Election and Voter Dashboard</p>
-        <h2>
+        <h3>
             <a href="#!/voter" ng-click="showVoter">Voter Registration</a>
             <a href="#!/election" ng-click="showElection">Election Management</a>
-        </h2>
+        </h3>
     </div>
     <div ng-view></div>
     <script src="jquery.min.js"></script>
