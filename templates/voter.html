@@ -1,8 +1,8 @@
 <div class="row container">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <form>
-            <div class="row">
+        <form ng-hide="qrView">
+            <div class="row text-center">
                 <div class="form-group col-sm-6">
                     <label for="firstName" class="col-form-label-lg">First Name</label>
                     <input type="text" id="firstName" class="form-control form-control-lg" ng-model="voterFirstname">
@@ -15,13 +15,19 @@
             <div class="row text-center">
                 <div class="col-sm-3"></div>
                 <div class="form-group col-sm-6">
-                    <label for="ssn" class="col-form-label-lg" >Social Security Number</label>
+                    <label for="ssn" class="col-form-label-lg" >SSN / SIN</label>
                     <input type="text" id="ssn" class="form-control form-control-lg" ng-model="voterSSN"><br>
-                    <button class="btn btn-success" ng-click="submitForm()">Register Voter</button>
+                    <button class="btn btn-success" ng-click="submitForm()" ng-bind="submitText">Register Voter</button>
                 </div>
                 <div class="col-sm-3"></div>
             </div>
         </form>
+        <div class="text-center" ng-show="qrView">
+            <br><br>
+            <h1>Voter Profile</h1>
+            <div id="qrcode"></div>
+            <button class="btn btn-default" id="resetQR" ng-click="resetQR()">Reset</button>
+        </div>
     </div>
     <div class="col-sm-2"></div>
 </div>

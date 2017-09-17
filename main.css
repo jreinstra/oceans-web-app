@@ -18,6 +18,12 @@ a, a:hover, a:active, a:focus {
     text-decoration: none !important;
 }
 
+#resetQR {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
 .row-stats p {
     font-size: 30px;
     font-weight: 400;
@@ -29,4 +35,10 @@ a, a:hover, a:active, a:focus {
 
 .stat-success {
     color: #5cb85c;
+}
+
+#qrcode img {
+    display: inline !important;
+    width: 400px;
+    height: 400px;
 }
