@@ -36,22 +36,18 @@ app.controller("VoterController", function($scope, $rootScope, $timeout, $http) 
     $scope.submitText = "Register Voter";
     $scope.submitForm = function() {
         $scope.submitText = "Loading...";
-        $timeout(function() {
-            new QRCode(document.getElementById("qrcode"), JSON.stringify({"address": "heh123", "private_key": "bar321"}));
+        $http.post(
+            BASE_URL + "/voter",
+            {
+                "first_name": $scope.voterFirstname,
+                "last_name": $scope.voterLastname,
+                "ssn": $scope.voterSSN,
+            },
+        ).then(function(response) {
+            console.log(response);
             $rootScope.qrView = true;
-        }, 500);
-//        $http.post(
-//            BASE_URL + "/signup",
-//            {
-//                "first_name": $scope.voterFirstname,
-//                "last_name": $scope.voterLastname,
-//                "ssn": $scope.voterSSN,
-//            },
-//        ).then(function(response) {
-//            $rootScope.qrView = true;
-//            console.log(response);
-//            $scope.qr = new QRCode(document.getElementById("qrcode"), response);
-//        }, function(error) {console.log(error);});
+            $scope.qr = new QRCode(document.getElementById("qrcode"), JSON.stringify(response.data));
+        }, function(error) {alert(error.data);});
     };
     $scope.resetQR = function() {
         $scope.submitText = "Register Voter";
