@@ -40,7 +40,7 @@ var async_fetch_vote = function(address, question_number, preference_number, cal
 
 /**** Ranking algorithm starts here ****/
 var trim_candidates = function(address_to_votes, candidate_to_votes) {
-    console.log(address_to_votes, candidate_to_votes);
+    // console.log(address_to_votes, candidate_to_votes);
     for(var question_id in candidate_to_votes) {
         var current_candidates = candidate_to_votes[question_id]
         var done = false;
@@ -50,13 +50,13 @@ var trim_candidates = function(address_to_votes, candidate_to_votes) {
             for(var i in current_candidates) {
                 if(current_candidates[i]) lengths.push(current_candidates[i].length);
             }
-            console.log(lengths);
+            // console.log(lengths);
             for(var i = 0; i < lengths.length; i++) {
                 for(var j = 0; j < lengths.length; j++) {
                     if(lengths[i] != lengths[j]) all_equal = false;
                 }
             }
-            console.log("all equal:", all_equal);
+            // console.log("all equal:", all_equal);
             if(all_equal) {
                 done = true;
             }
@@ -68,14 +68,14 @@ var trim_candidates = function(address_to_votes, candidate_to_votes) {
                         lowest_index = index;
                     }
                 }
-                console.log(current_candidates, "about to remove:", lowest_index);
+                // console.log(current_candidates, "about to remove:", lowest_index);
                 for(var address_index in current_candidates[lowest_index]) {
                     var address = current_candidates[lowest_index][address_index];
-                    console.log("before removal:", address_to_votes[address][question_id]);
+                    // console.log("before removal:", address_to_votes[address][question_id]);
                     var next_candidate_index = address_to_votes[address][question_id][0];
                     while(next_candidate_index == lowest_index || !current_candidates[next_candidate_index]) {
                         address_to_votes[address][question_id].splice(0, 1);
-                        console.log("remaining votes for ", address, ":", address_to_votes[address][question_id]);
+                        // console.log("remaining votes for ", address, ":", address_to_votes[address][question_id]);
                         next_candidate_index = address_to_votes[address][question_id][0];
                     }
                     current_candidates[next_candidate_index].push(address);
@@ -95,7 +95,7 @@ var massage_data = function() {
         address_to_votes[voters[i]] = [];
     }
     for(var question_id in questions) {
-        console.log("on question:", question_id);
+        // console.log("on question:", question_id);
         var question = questions[question_id];
         var candidates = question["candidates"];
         candidate_to_votes[question_id] = [];
